@@ -14,6 +14,6 @@ confirmButton.addEventListener("click", async () => {
 
 function myFunction() {
   chrome.storage.local.get("elementId", function(result) {
-    console.log('Value currently is ' + result);
+    alert('Value currently is ' + result.elementId);
   });
 }
