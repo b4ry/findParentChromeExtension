@@ -1,9 +1,8 @@
-const idInput = document.getElementById("child-element-id-input-ext");
 const confirmButton = document.getElementById("confirm-element-id-button-ext");
 
 confirmButton.addEventListener("click", async () => {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  const elementId = idInput.value;
+  const elementId = document.getElementById("child-element-id-input-ext").value;
 
   chrome.storage.local.set({ "elementId": elementId });
 
