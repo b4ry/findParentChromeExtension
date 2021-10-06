@@ -8,12 +8,32 @@ confirmButton.addEventListener("click", async () => {
 
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
-    function: myFunction,
+    function: findAbsoluteOrRelativeParentElement,
   });
 });
 
-function myFunction() {
+function findAbsoluteOrRelativeParentElement() {
   chrome.storage.local.get("elementId", function(result) {
-    alert('Value currently is ' + result.elementId);
+    const element = document.getElementById(result.elementId);
+
+    if(element) {
+      findParentRec(element.parentElement);
+    } else {
+      alert(`Could not find element by provided id: ${result.elementId}`);
+    }
   });
+
+  function findParentRec(parent) {
+    if(parent) {
+      const parentPosition = getComputedStyle(parent).position;
+
+      if(parentPosition != "absolute" && parentPosition != "relative") {
+        findParentRec(parent.parentElement);
+      } else {
+        parent.style.border = "thick solid red";
+      }
+    } else {
+      alert("HTML element is the parent.")
+    }
+  }
 }
