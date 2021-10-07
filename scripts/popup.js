@@ -56,16 +56,16 @@ function findAbsoluteOrRelativeParentElement() {
 
 function clear() {
   chrome.storage.local.get("previousBorder", function(result) {
-    if(result) {
-      const firstParent = document
-        .getElementsByClassName("first-parent-chrome-extension123421")[0];
+    const firstParent = document
+      .getElementsByClassName("first-parent-chrome-extension123421")[0];
 
+    if(firstParent) {
       firstParent.style.border = result.previousBorder;
       firstParent.classList.remove("first-parent-chrome-extension123421");
+    }
 
+    if(result.previousBorder) {
       chrome.storage.local.remove("previousBorder");
-    } else {
-      alert("Nothing to clear!");
     }
   });
 }
