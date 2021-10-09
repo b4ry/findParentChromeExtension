@@ -1,3 +1,24 @@
 button {
   margin-top: 0.4rem;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px;
+  width: 100%;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+input {
+  font-size: 1rem;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+td {
+  width: 50%;
 }
