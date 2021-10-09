@@ -1,6 +1,6 @@
 {
   "name": "Find Parent",
-  "description": "Find the first element's relative/absolute parent",
+  "description": "Find the element's first relative/absolute parent",
   "version": "1.0",
   "manifest_version": 3,
   "permissions": ["storage", "activeTab", "scripting"],
