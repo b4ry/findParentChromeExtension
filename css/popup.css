@@ -16,6 +16,7 @@ input {
   border: none;
   border-bottom: 1px solid #555555;
   padding: 0;
+  outline: none;
 }
 
 table {
