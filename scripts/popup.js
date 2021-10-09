@@ -42,9 +42,9 @@ function findAbsoluteOrRelativeParentElement() {
       } else {
         chrome.storage.local.set({ "previousBorder": parent.style.border });
         parent.style.border = "thick solid red";
-        /* unfortunately cannot store the parent in the storage cuz it is being serialized to {}
+        /* unfortunately cannot store the parent element in the storage cuz it is being serialized to {}
            hence decided to add a class with unpredictable name to the parent element to be able
-           to restore its border
+           to restore its borders
         */
         parent.classList.add("first-parent-chrome-extension123421");
       }
