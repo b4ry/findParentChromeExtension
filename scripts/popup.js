@@ -3,9 +3,9 @@ const clearButton = document.getElementById("clear-button-ext");
 
 confirmButton.addEventListener("click", async () => {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  const elementId = document.getElementById("child-element-id-input-ext").value;
+  const elementSelector = document.getElementById("element-selector-input-ext").value;
 
-  chrome.storage.local.set({ "elementId": elementId });
+  chrome.storage.local.set({ "elementSelector": elementSelector });
 
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
@@ -23,13 +23,17 @@ clearButton.addEventListener("click", async () => {
 });
 
 function findAbsoluteOrRelativeParentElement() {
-  chrome.storage.local.get("elementId", function(result) {
-    const element = document.getElementById(result.elementId);
+  chrome.storage.local.get("elementSelector", function(result) {
+    if(result.elementSelector) {
+      const element = document.querySelector(result.elementSelector);
 
-    if(element) {
-      findParentRec(element.parentElement);
+      if(element) {
+        findParentRec(element.parentElement);
+      } else {
+        alert(`Could not find element by provided selector: ${result.elementSelector}`);
+      }
     } else {
-      alert(`Could not find element by provided id: ${result.elementId}`);
+      alert("The element's selector has not been provided. Please, provide an element's selector.");
     }
   });
 
@@ -56,8 +60,7 @@ function findAbsoluteOrRelativeParentElement() {
 
 function clear() {
   chrome.storage.local.get("previousBorder", function(result) {
-    const firstParent = document
-      .getElementsByClassName("first-parent-chrome-extension123421")[0];
+    const firstParent = document.getElementsByClassName("first-parent-chrome-extension123421")[0];
 
     if(firstParent) {
       firstParent.style.border = result.previousBorder;
