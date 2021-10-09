@@ -2,11 +2,12 @@ button {
   margin-top: 0.4rem;
   border: none;
   text-align: center;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: transparent;
   font-size: 1rem;
   padding: 10px;
   width: 100%;
-  transition-duration: 0.4s;
+  transition-duration: 1s;
   cursor: pointer;
 }
 
@@ -35,6 +36,7 @@ td {
 #confirm-button-ext:hover {
   background-color: #4CAF50;
   color: white;
+  text-decoration-color: white;
 }
 
 #clear-button-ext {
@@ -46,4 +48,5 @@ td {
 #clear-button-ext:hover {
   background-color: #555555;
   color: white;
+  text-decoration-color: white;
 }
