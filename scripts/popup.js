@@ -1,4 +1,4 @@
-const confirmButton = document.getElementById("confirm-element-id-button-ext");
+const confirmButton = document.getElementById("confirm-button-ext");
 const clearButton = document.getElementById("clear-button-ext");
 
 confirmButton.addEventListener("click", async () => {

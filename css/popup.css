@@ -12,6 +12,9 @@ button {
 
 input {
   font-size: 1rem;
+  border: none;
+  border-bottom: 1px solid #555555;
+  padding: 0;
 }
 
 table {
@@ -21,4 +24,26 @@ table {
 
 td {
   width: 50%;
+}
+
+#confirm-button-ext {
+  background-color: white;
+  color: black;
+  border: 1px solid #4CAF50;
+}
+
+#confirm-button-ext:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#clear-button-ext {
+  background-color: white;
+  color: black;
+  border: 1px solid #555555;
+}
+
+#clear-button-ext:hover {
+  background-color: #555555;
+  color: white;
 }
