@@ -16,6 +16,8 @@ confirmButton.addEventListener("click", async () => {
 clearButton.addEventListener("click", async () => {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
+  document.getElementById("element-selector-input-ext").value = null;
+
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
     function: clear
