@@ -4,14 +4,24 @@ const clearButton = document.getElementById("clear-button-ext");
 window.onload = async function() {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    files: [ "scripts/content-script.js" ]
-  });
+  chrome.storage.local.get({ tabIds: [] }, function (result) {
+    let tabIds = result.tabIds;
 
-  chrome.scripting.insertCSS({
-    target: { tabId: tab.id },
-    files: [ "css/content.css" ]
+    // O(n); could not use the sets...
+    if(tabIds.includes(tab.id)) return;
+
+    chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: [ "scripts/content-script.js" ]
+    });
+
+    chrome.scripting.insertCSS({
+      target: { tabId: tab.id },
+      files: [ "css/content.css" ]
+    });
+
+    tabIds.push(tab.id);
+    chrome.storage.local.set({ tabIds: tabIds });
   });
 }
 
