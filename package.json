@@ -1,0 +1,22 @@
+{
+  "name": "findparentchromeextension",
+  "version": "1.0.0",
+  "description": "Find the element's first relative/absolute parent",
+  "main": "content-script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/b4ry/findParentChromeExtension.git"
+  },
+  "author": "b4ry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/b4ry/findParentChromeExtension/issues"
+  },
+  "homepage": "https://github.com/b4ry/findParentChromeExtension#readme",
+  "devDependencies": {
+    "jest": "^27.2.5"
+  }
+}
