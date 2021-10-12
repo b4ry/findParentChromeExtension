@@ -3,7 +3,7 @@ chrome.runtime.onMessage.addListener(
     switch(message.type) {
       case "findParent":
         clear();
-        findAbsoluteOrRelativeParentElement(message.data);
+        findParent(message.data);
         break;
       case "clear":
         clear();
@@ -12,7 +12,7 @@ chrome.runtime.onMessage.addListener(
   }
 );
 
-function findAbsoluteOrRelativeParentElement(childSelector) {
+function findParent(childSelector) {
   if(childSelector) {
     const element = document.querySelector(childSelector);
 
