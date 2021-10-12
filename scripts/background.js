@@ -5,16 +5,14 @@
 chrome.tabs.onUpdated.addListener(
   function(tabId, changeInfo) {
     if(changeInfo.status === "complete") {
-      console.log(tabId);
       chrome.storage.local.get({ tabIds: [] }, function (result) {
         let tabIds = result.tabIds;
-        console.log(tabIds);
 
         const index = tabIds.indexOf(tabId);
         if(index === -1) return;
 
         tabIds.splice(index, 1);
-        console.log(tabIds);
+        
         chrome.storage.local.set({ tabIds: tabIds });
       });
     }
