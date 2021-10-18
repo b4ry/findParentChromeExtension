@@ -47,3 +47,6 @@ function clear() {
     firstParent.classList.remove("first-parent-extension");
   }
 };
+
+module.exports.clear = clear;
+module.exports.findParent = findParent;
