@@ -3,7 +3,7 @@ chrome.runtime.onMessage.addListener(
     switch(message.type) {
       case "findParent":
         clear();
-        findAbsoluteOrRelativeParentElement(message.data);
+        findParent(message.data);
         break;
       case "clear":
         clear();
@@ -12,7 +12,7 @@ chrome.runtime.onMessage.addListener(
   }
 );
 
-function findAbsoluteOrRelativeParentElement(childSelector) {
+function findParent(childSelector) {
   if(childSelector) {
     const element = document.querySelector(childSelector);
 
@@ -38,7 +38,7 @@ function findAbsoluteOrRelativeParentElement(childSelector) {
       alert("HTML element is the parent.")
     }
   }
-}
+};
 
 function clear() {
   const firstParent = document.getElementsByClassName("first-parent-extension")[0];
@@ -46,4 +46,4 @@ function clear() {
   if(firstParent) {
     firstParent.classList.remove("first-parent-extension");
   }
-}
+};
