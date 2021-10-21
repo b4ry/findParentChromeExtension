@@ -38,7 +38,7 @@ function findParent(childSelector) {
       alert("HTML element is the parent.")
     }
   }
-}
+};
 
 function clear() {
   const firstParent = document.getElementsByClassName("first-parent-extension")[0];
@@ -46,4 +46,7 @@ function clear() {
   if(firstParent) {
     firstParent.classList.remove("first-parent-extension");
   }
-}
+};
+
+module.exports.clear = clear;
+module.exports.findParent = findParent;
