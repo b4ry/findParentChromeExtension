@@ -3,7 +3,7 @@
 
 ## Description 📄
 
-A Chrome extension finding a direct absolute/relative parent element in order to facilitate the positioning of the parent's children elements.</br>
+An open source Chrome extension finding a direct absolute/relative parent element in order to facilitate the positioning of the parent's children elements.</br>
 The extension displays a small popup after clicking on the extension's icon.
 
 ![image](https://user-images.githubusercontent.com/3950530/138863948-eb82b6b2-598d-4f81-9c52-23555494fc48.png)
