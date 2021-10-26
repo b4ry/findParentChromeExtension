@@ -9,7 +9,7 @@ The extension has a form of a popup which accepts a user's input.
 
 The extension looks for a direct parent's element (having either an absolute or a relative CSS position, or both) to the element specified with the **element's selector**.
 
-### Element's selector input + Find button
+### 📌 Element's selector input + Find button
 
 The input accepts any CSS selector. It can be retrieved via the Chrome Dev tools:
 
@@ -45,6 +45,6 @@ If there is a direct parent found, then this parent element is being highlighted
 
 ![image](https://user-images.githubusercontent.com/3950530/138872297-8b816eb1-f23a-4246-86a3-298e9abd172b.png)
 
-### Clear button
+### 📌 Clear button
 
 Clicking the **Clear** button removes the extension CSS class from the direct parent element, hence it has effect only if such a parent element was found - otherwise, it has no effect.
