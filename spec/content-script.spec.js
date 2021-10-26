@@ -37,7 +37,7 @@ describe("Content script unit tests:", () => {
     contentScript.findParent();
 
     expect(alertMock)
-      .toHaveBeenCalledWith("The element's selector has not been provided. Please, provide an element's selector.");
+      .toHaveBeenCalledWith("The element's selector has not been provided.\nPlease, provide an element's selector.");
   });
 
   test("findParent() calls the alert when no child found with the provided child selector", () => {
