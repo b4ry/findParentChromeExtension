@@ -22,7 +22,7 @@ function findParent(childSelector) {
       alert(`Could not find element by provided selector: ${childSelector}`);
     }
   } else {
-    alert("The element's selector has not been provided. Please, provide an element's selector.");
+    alert("The element's selector has not been provided.\nPlease, provide an element's selector.");
   }
 
   function findParentRec(parent) {
