@@ -100,7 +100,7 @@ describe("Content script unit tests:", () => {
     document.body.innerHTML = `
       <div class="parent-element1" style="position: relative;">
         <div class="child-element-initial-position"></div>
-        <div class="parent-element2"">
+        <div class="parent-element2">
       	 <div class="child-element" id="test"></div>
         </div>
       </div>
@@ -113,11 +113,11 @@ describe("Content script unit tests:", () => {
     expect(document.getElementsByClassName("first-parent-extension")).toHaveLength(1);
   });
 
-  test("findParent() calls the alert when there is no parent with either an absolute or a relative position", () => {
+  test("findParent() calls the alert when there is no parent with a non static position", () => {
     const alertMock = jest.spyOn(window, "alert").mockImplementation();
     const childSelector = "#test";
     document.body.innerHTML = `
-      <div class="parent-element1"">
+      <div class="parent-element1">
       	<div class="child-element" id="test"></div>
       </div>
     `;
@@ -128,11 +128,11 @@ describe("Content script unit tests:", () => {
   });
 
   test(`findParent() calls the alert with a message that the html element is the element's parent
-    when there is no parent with either an absolute or a relative position`, () => {
+    when there is no parent with a non static position`, () => {
     const alertMock = jest.spyOn(window, "alert").mockImplementation();
     const childSelector = "#test";
     document.body.innerHTML = `
-      <div class="parent-element1"">
+      <div class="parent-element1">
       	<div class="child-element" id="test"></div>
       </div>
     `;

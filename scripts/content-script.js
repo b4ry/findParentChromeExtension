@@ -29,7 +29,7 @@ function findParent(childSelector) {
     if(parent) {
       const parentPosition = getComputedStyle(parent).position;
 
-      if(parentPosition !== "absolute" && parentPosition !== "relative") {
+      if(parentPosition == undefined || parentPosition == "" || parentPosition === "static") {
         findParentRec(parent.parentElement);
       } else {
         parent.classList.add("first-parent-extension");
