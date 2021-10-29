@@ -59,7 +59,7 @@ describe("Content script unit tests:", () => {
     expect(alertMock).toHaveBeenCalledWith(alertMessage);
   });
 
-  test("findParent() finds the first parent with an absolute position", () => {
+  test("findParent() finds the first parent with a non static (absolute) position", () => {
     const childSelector = "#test";
     document.body.innerHTML = `
       <div class="parent-element1" style="position: absolute;">
@@ -77,12 +77,48 @@ describe("Content script unit tests:", () => {
     expect(document.getElementsByClassName("first-parent-extension")).toHaveLength(1);
   });
 
-  test("findParent() finds the first parent with a relative position", () => {
+  test("findParent() finds the first parent with a non static (relative) position", () => {
     const childSelector = "#test";
     document.body.innerHTML = `
       <div class="parent-element1" style="position: relative;">
         <div class="child-element-initial-position"></div>
         <div class="parent-element2" style="position: relative;">
+      	 <div class="child-element" id="test"></div>
+        </div>
+      </div>
+    `;
+
+    contentScript.findParent(childSelector);
+
+    const parent = document.querySelector(".parent-element2");
+    expect(parent.classList[1]).toBe("first-parent-extension");
+    expect(document.getElementsByClassName("first-parent-extension")).toHaveLength(1);
+  });
+
+  test("findParent() finds the first parent with a non static (sticky) position", () => {
+    const childSelector = "#test";
+    document.body.innerHTML = `
+      <div class="parent-element1" style="position: relative;">
+        <div class="child-element-initial-position"></div>
+        <div class="parent-element2" style="position: sticky;">
+      	 <div class="child-element" id="test"></div>
+        </div>
+      </div>
+    `;
+
+    contentScript.findParent(childSelector);
+
+    const parent = document.querySelector(".parent-element2");
+    expect(parent.classList[1]).toBe("first-parent-extension");
+    expect(document.getElementsByClassName("first-parent-extension")).toHaveLength(1);
+  });
+
+  test("findParent() finds the first parent with a non static (fixed) position", () => {
+    const childSelector = "#test";
+    document.body.innerHTML = `
+      <div class="parent-element1" style="position: relative;">
+        <div class="child-element-initial-position"></div>
+        <div class="parent-element2" style="position: fixed;">
       	 <div class="child-element" id="test"></div>
         </div>
       </div>
