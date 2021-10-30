@@ -1,7 +1,7 @@
 {
   "name": "Find Parent",
-  "description": "Find the element's first relative/absolute parent",
-  "version": "1.0",
+  "description": "Find the element's first non-static parent",
+  "version": "0.1",
   "manifest_version": 3,
   "background": {
     "service_worker": "scripts/background.js"
